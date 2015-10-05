@@ -1,5 +1,6 @@
 var textArea = document.getElementById("text-area");
-textArea.innerHTML = "ello";
+var wordArea = document.getElementById("word-area");
+var difficultyArea = document.getElementById("difficulty-area");
 
 
 function startGame(){
@@ -10,7 +11,7 @@ function startGame(){
 	var guess = "";
 	//guess and word are set before functions or proccessing occurs.
 	var difficulty = prompt("Set Difficulty: H, M, or E");
-	textArea.innerHTML = ("Difficulty set to: " + difficulty);
+	difficultyArea.innerHTML = ("Difficulty set to: " + difficulty);
 	setWord();
 	function setDifficulty(){
 		difficulty = difficulty.toLowerCase();
@@ -36,7 +37,7 @@ function startGame(){
 			setWord();
 		}
 		else{
-			textArea.innerHTML = ("Word set to: " + word);
+			wordArea.innerHTML = ("Word set to: " + word);
 			console.log("Time to guess the letter in your word!");
 			guess = prompt("Guess a letter in your word");
 		}
@@ -62,6 +63,7 @@ function startGame(){
 			}
 			else{
 				textArea.innerHTML = ("Game Over")
+				difficultyArea.innerHTML = "difficulty"
 				console.log("Computer picked: " + letter);
 			}
 		}
