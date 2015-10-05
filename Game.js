@@ -1,9 +1,9 @@
-var word = [];
+var word = ""
+var letter = "" 
 //guess and word are set before functions or proccessing occurs.
 var word = prompt("Pick a word");
 var guess = prompt("Guess a letter in your word");
-console.log(word);
-var letter = "" 
+
 function letterRandom(w){
 	var indexRandom = Math.floor(Math.random() * w.length);
 	letter = w[indexRandom];
@@ -15,10 +15,13 @@ function checkGuess(g){
 		console.log("Please insert a valid guess.");
 	}
 	else if (g != letter){
-		console.log("false");
+		console.log("Try again");
+		var guess = prompt("Guess a letter in your word");
+		checkGuess(guess)
 	}
 	else{
-		console.log("true");
+		console.log("The corrent letter is:" + " " + g);
 	}
 }
 letterRandom(word);
+console.log(word);
