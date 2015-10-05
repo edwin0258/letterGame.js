@@ -3,13 +3,11 @@ function startGame(){
 	var letter = "";
 	var difficulty = "";
 	var counter = 0;
+	var guess = "";
 	//guess and word are set before functions or proccessing occurs.
 	var difficulty = prompt("Set Difficulty: H, M, or E");
 	console.log("Difficulty set to: " + difficulty);
-	var word = prompt("Pick a word");
-	console.log("Word set to: " + word);
-	console.log("Time to guess the letter in your word!");
-	var guess = prompt("Guess a letter in your word");
+	setWord();
 	function setDifficulty(){
 		difficulty = difficulty.toLowerCase();
 		if(difficulty == "e"){
@@ -27,7 +25,18 @@ function startGame(){
 			setDifficulty();
 		};
 	};
-
+	function setWord(){
+		word = prompt("Pick a word");
+		if (word == null || undefined || !word){
+			console.log("Please insert a valid word.");
+			setWord();
+		}
+		else{
+			console.log("Word set to: " + word);
+			console.log("Time to guess the letter in your word!");
+			guess = prompt("Guess a letter in your word");
+		}
+	}
 	function letterRandom(w){
 		var indexRandom = Math.floor(Math.random() * w.length);
 		letter = w[indexRandom];
